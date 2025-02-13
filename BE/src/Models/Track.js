@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import Artist from "./Artist.js";
 
 const Track = new Schema({
     title: {
@@ -7,7 +8,7 @@ const Track = new Schema({
     },
     artists: [{
         type: Schema.Types.ObjectId,
-        ref: 'Artist'
+        ref: "Artist"
     }],
     thumbnail: {
         type: String,

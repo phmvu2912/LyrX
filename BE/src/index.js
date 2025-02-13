@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectMongoDB from './connect.js';
+import routes from './Routes/index.js';
 
 const app = express();
 
@@ -16,10 +17,8 @@ const uri = process.env.MONGODB_URI || null;
 //* CONNECT TO MONGODB
 connectMongoDB(uri);
 
-//* TEST REQUEST
-app.get('/', (req, res) => {
-    res.send('Hello World');
-})
+//* ROUTES
+routes(app);
 
 //* LISTEN PORT
 app.listen(PORT, () => {
