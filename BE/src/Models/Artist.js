@@ -16,7 +16,7 @@ const Artist = new Schema({
     bio: {
         type: String,
     },
-    views_per_month: {
+    listens_per_month: {
         type: Number,
         default: 0
     },
