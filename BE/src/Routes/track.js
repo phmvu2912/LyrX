@@ -1,9 +1,13 @@
 import express from 'express';
-import { getAllTracks } from '../Controllers/TrackController.js';
+import { createTrack, getAllTracks, getTrackById, updateTrackById } from '../Controllers/TrackController.js';
 
 const routeTrack = express.Router();
 
 routeTrack.get('/', getAllTracks); //* Get all tracks
+routeTrack.get('/:id', getTrackById); //* Get track by id
+routeTrack.delete('/:id', getTrackById); //* Delete track by id
+routeTrack.post('/', createTrack); //* Create track
+routeTrack.put('/:id', updateTrackById); //* Update track by id
 
 export default routeTrack
 

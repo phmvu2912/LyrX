@@ -5,6 +5,10 @@ import routes from './Routes/index.js';
 
 const app = express();
 
+//* MIDDLEWARE
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 //* CONFIG DOTENV
 dotenv.config();
 

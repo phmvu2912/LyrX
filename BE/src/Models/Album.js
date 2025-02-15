@@ -1,4 +1,6 @@
 import mongoose, { Schema } from "mongoose";
+import Artist from "./Artist.js";
+import Track from "./Track.js";
 
 const Album = new Schema({
     title: {
