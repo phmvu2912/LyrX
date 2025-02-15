@@ -9,10 +9,14 @@ const LayoutClient = () => {
             {/* End Header */}
 
             {/* Main */}
-            <div>
+            <div className="container mx-auto py-6">
                 <Outlet />
             </div>
             {/* End Main */}
+
+            {/* Footer */}
+
+            {/* End Footer */}
         </>
     )
 }
