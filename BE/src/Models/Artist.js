@@ -23,7 +23,15 @@ const Artist = new Schema({
     is_verified: {
         type: Boolean,
         default: false
-    }
+    },
+    tracks: [{
+        type: Schema.Types.ObjectId,
+        ref: "Track"
+    }],
+    albums: [{
+        type: Schema.Types.ObjectId,
+        ref: "Album"
+    }]
 });
 
 export default mongoose.model('Artist', Artist);

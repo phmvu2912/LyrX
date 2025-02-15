@@ -4,7 +4,9 @@ import Track from "../Models/Track.js"
 export const getAllTracks = async (req, res) => {
     try {
 
-        const tracks = await Track.find().populate('artists');
+        const tracks = await Track.find()
+            .populate('artists')
+            .populate('album');
 
         // console.log(tracks)
 
@@ -36,7 +38,9 @@ export const getTrackById = async (req, res) => {
 
         const { id } = req.params;
 
-        const track = await Track.findById(id).populate('artists');
+        const track = await Track.findById(id)
+            .populate('artists')
+            .populate('album');
 
         //* Check if track exists
         if (!track) {
@@ -68,7 +72,7 @@ export const removeTrackById = async (req, res) => {
 
         const { id } = req.params;
 
-        const track = await Track.findByIdAndDelete(id).populate('artists');
+        const track = await Track.findByIdAndDelete(id)
 
         //* Check if track exists
         if (!track) {
@@ -134,7 +138,7 @@ export const updateTrackById = async (req, res) => {
 
         const { id } = req.params;
 
-        if(!req.body) return res.status(400).json({
+        if (!req.body) return res.status(400).json({
             status: 400,
             message: "Data cannot be empty!"
         });
@@ -145,11 +149,13 @@ export const updateTrackById = async (req, res) => {
         if (!trackExists) {
             return res.status(404).json({
                 status: 404,
-                message: "Track not found!"
+                message: "Data not found!"
             })
         }
 
-        const track = await Track.findByIdAndUpdate(id, req.body, { new: true }).populate('artists');
+        const track = await Track.findByIdAndUpdate(id, req.body, { new: true })
+            .populate('artists')
+            .populate('album');
 
         console.log(id, req.body)
 
